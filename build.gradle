@@ -1,0 +1,22 @@
+import org.apache.maven.cli.MavenCli
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+// ビルドスクリプト内で MavenCli を使うための設定
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.apache.maven:maven-embedder:3.0.5'
+    }
+}
+
+
+task mvn << {
+	// def argsLine = "-f pom.xml clean package -Dmaven.test.skip=true"
+	def argsLine = "-f pom.xml clean test"
+	// Mavenの実行
+	MavenCli.doMain(argsLine.split(' '), null)
+}

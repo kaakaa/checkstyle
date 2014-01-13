@@ -149,7 +149,8 @@
   <properties>
     <project.build.sourceEncoding>iso-8859-1</project.build.sourceEncoding>
     <testinputs.dir>${basedir}/src/testinputs/com/puppycrawl/tools/checkstyle</testinputs.dir>
-    <testsrcs.dir>${basedir}/src/tests/com/puppycrawl/tools/checkstyle</testsrcs.dir>
+    <!-- <testsrcs.dir>${basedir}/src/tests/com/puppycrawl/tools/checkstyle</testsrcs.dir> -->
+    <testsrcs.dir>${basedir}/src/mytester/com/puppycrawl/tools/checkstyle</testsrcs.dir>
     <projectVersion>${project.version}</projectVersion>
     <tools.jar.version>1.5.0</tools.jar.version>
     <tools.jar.path>${java.home}/../lib/tools.jar</tools.jar.path>
@@ -191,6 +192,12 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy</artifactId>
+      <version>2.2.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -212,7 +219,7 @@
       </testResource>
     </testResources>
 
-    <testSourceDirectory>src/tests</testSourceDirectory>
+    <testSourceDirectory>src/mytester</testSourceDirectory>
 
     <pluginManagement>
       <plugins>
